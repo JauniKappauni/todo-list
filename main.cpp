@@ -2,17 +2,33 @@
 using namespace std;
 
 string tasks[8];
+int count = 0;
 
 void add()
 {
+    string input;
+    cout << "Please enter the task: ";
+    cin >> input;
+    tasks[count++] = input;
+    cout << "Added a task\n";
 }
 
 void remove()
 {
+    int input;
+    cout << "Please enter the index: ";
+    cin >> input;
+    tasks[input] = "";
+    cout << "Removed a task\n";
 }
 
 void listTasks()
 {
+    cout << "List of all tasks:\n";
+    for (int i = 0; i < count; i++)
+    {
+        cout << i << ": " << tasks[i] << endl;
+    }
 }
 
 int main()
@@ -30,15 +46,15 @@ int main()
         switch (operation)
         {
         case 1:
-            cout << "Added a task\n";
+            add();
             break;
 
         case 2:
-            cout << "Removed a task\n";
+            remove();
             break;
 
         case 3:
-            cout << "List of all tasks\n";
+            listTasks();
             break;
 
         default:
